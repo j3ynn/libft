@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/20 21:34:18 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/20 22:30:37 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		return (1);
-	}
-	else
-	{
-		return (0);
+		write (fd, s, 1);
+		s ++;
 	}
 }
+/*int main()
+{
+	char	*str;
+	str = "porcodio";
+	ft_putstr_fd(str, 1);
+}*/

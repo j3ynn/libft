@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/23 13:50:33 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/23 14:03:16 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		return (1);
-	}
-	else
-	{
-		return (0);
+		f(lst -> content);
+		lst = lst -> next;
 	}
 }

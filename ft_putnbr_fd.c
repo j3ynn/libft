@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/20 22:58:17 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/21 01:42:41 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	if (n == -2147483648)
 	{
-		return (1);
+		write (fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write (fd, "-", 1);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
 	{
-		return (0);
+		n += 48;
+		write (fd, &n, 1);
 	}
 }
+/*int main ()
+{
+	int	n;
+	n = -12345;
+	ft_putnbr_fd(n, 1);
+}*/

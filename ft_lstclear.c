@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/23 10:56:07 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/23 13:52:22 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	t_list	*tlst;
+
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		return (1);
-	}
-	else
-	{
-		return (0);
+		tlst = *lst;
+		*lst = tlst -> next;
+		ft_lstdelone(tlst, del);
 	}
 }

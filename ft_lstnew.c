@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/21 01:49:36 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/22 14:50:39 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+t_list	*ft_lstnew(void *content)
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	t_list	*newlst;
+
+	newlst = (t_list *)malloc(sizeof(t_list));
+	if (!newlst)
+		return (NULL);
+	newlst -> content = content;
+	newlst -> next = NULL;
+	return (newlst);
 }

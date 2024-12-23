@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/20 22:33:52 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/20 22:55:19 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		return (1);
+		write (fd, s, 1);
+		s ++;
 	}
-	else
-	{
-		return (0);
-	}
+	write (fd, "\n", 1);
 }
+/*int main ()
+{
+	char	*str;
+	str = "diocanebastardo";
+	ft_putendl_fd(str, 1);
+}*/

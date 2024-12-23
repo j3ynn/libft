@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:00:04 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/20 17:04:19 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/20 21:32:35 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	
+	write (fd, &c, 1);
 }

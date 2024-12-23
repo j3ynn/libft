@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/23 14:11:40 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/23 15:37:10 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
+	t_list	*tlst;
+	t_list	*new;
+
+	if (!lst || !f || !del)
+		return (NULL);
+	tlst = NULL;
+	while (lst)
 	{
-		return (1);
+		new = ft_lstnew(f(lst -> content));
+		if (!new)
+		{
+			ft_lstclear(&tlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&tlst, new);
+		lst = lst->next;
 	}
-	else
-	{
-		return (0);
-	}
+	return (tlst);
 }

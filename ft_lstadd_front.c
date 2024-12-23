@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:02:54 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:15 by jbellucc         ###   ########.fr       */
+/*   Created: 2024/12/22 14:53:35 by jbellucc          #+#    #+#             */
+/*   Updated: 2024/12/23 13:49:35 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int p)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (p >= 65 && p <= 90 || p >= 97 && p <= 122)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	if (!new)
+		return ;
+	new -> next = *lst;
+	*lst = new;
 }
