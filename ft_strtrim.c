@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:59:49 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/27 14:58:48 by je               ###   ########.fr       */
+/*   Updated: 2024/12/27 15:22:42 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	h = 0;
+	if (!s1 || !set)
+		return (NULL);
 	fs1 = ft_strlen(s1) - 1;
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i ++;
