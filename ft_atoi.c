@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:28:21 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/11 11:27:06 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:07:49 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	p = 0;
 	ris = 0;
 	sign = 1;
-	while (str[p] == ' ' || str[p] >= 9 && str[p] <= 13)
+	while ((str[p] == ' ') || (str[p] >= 9 && str[p] <= 13))
 		p ++;
 	if (str[p] == '-' || str[p] == '+')
 	{
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 		}
 		p++;
 	}
-	while (str[p] >= 48 && str[p] <= 57)
+	while ((str[p] >= 48) && (str[p] <= 57))
 	{
 		ris = ris * 10 + (str[p] - 48);
 		p ++;

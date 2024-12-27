@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:46:22 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/16 15:58:19 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:10:49 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s1len;
 	size_t	s2len;
 	char	*s3;
-	char	*st;
 
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);

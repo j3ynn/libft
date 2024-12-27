@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:42:20 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/10 13:56:27 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/24 11:10:01 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	src_size = ft_strlen(src);
 	while (dest[p] != '\0' && p < size)
 		p ++;
+	if (p == size)
+		return (size + src_size);
 	while (src[p2] != '\0' && (p + p2 + 1) < size)
 	{
 		dest[p + p2] = src[p2];

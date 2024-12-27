@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:19:52 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/17 14:28:30 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/27 10:39:25 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,16 @@ char	*ft_strrchr(const char *str, int s)
 
 	p = 0;
 	while (str[p] != '\0')
-	{
 		p ++;
-	}
 	while (p >= 0)
 	{
-		if (str[p] == s)
-		{
+		if (str[p] == (char)s)
 			return ((char *)(str + p));
-		}
 		p --;
 	}
 	if (s == '\0')
-	{
 		return ((char *)(str + p));
-	}
-	else
-	{
-		return (0);
-	}
+	return (NULL);
 }
 /*int main(int argc, char **argv)
 {

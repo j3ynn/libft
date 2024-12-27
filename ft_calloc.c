@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:19:28 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/13 23:23:01 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/27 12:29:13 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
 
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > ((size_t)-1) / size)
+		return (NULL);
 	p = malloc(nmemb * size);
-	if (!p || p != 0 && size > SIZE_MAX / nmemb)
+	if ((!p) || (p != 0 && size > SIZE_MAX / nmemb))
 		return (NULL);
 	ft_bzero(p, nmemb * size);
 	return (p);

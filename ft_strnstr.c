@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:40:14 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/11 17:55:48 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:04:50 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	p;
-	int	p2;
+	size_t	p;
+	size_t	p2;
 
 	p = 0;
 	p2 = 0;

@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:46:26 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/11 16:03:20 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:34:40 by jbellucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*buffer;
-	int				p;
+	unsigned char		*buffer;
+	size_t				p;
 
 	buffer = (unsigned char *)s;
 	p = 0;

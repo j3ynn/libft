@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:35:10 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/12 11:48:01 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:57:31 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t			p;
-	unsigned char	*s;
-	unsigned char	*d;
+	const char	*s;
+	char		*d;
 
-	s = (unsigned char *) src;
-	d = (unsigned char *) dest;
-	p = 0;
-	if (!dest && !src)
-		return (0);
-	while (s[p] != '\0' && p < n)
+	s = (const char *) src;
+	d = (char *) dest;
+	while (n > 0)
 	{
-		d[p] = s[p];
-		p ++;
+		*d = *s;
+		d ++;
+		s ++;
+		n --;
 	}
 	return (dest);
 }
 /*int main ()
 {
 	char	dest[6];
-	ft_memcpy(dest,"zoo",2);
-	printf("%s\n", dest);
+	ft_memcpy(dest,"zyxwvutst", 0);
+	printf("%s\n", ft_memcpy);
 }*/

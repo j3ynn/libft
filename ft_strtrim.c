@@ -6,7 +6,7 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:59:49 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/17 15:27:01 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:58:48 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*j;
-	size_t	i;
-	size_t	fs1;
-	size_t	h;
+	int		i;
+	int		fs1;
+	int		h;
 
 	i = 0;
 	h = 0;
-	j = (char *)malloc(sizeof(char) * (fs1 - i + 1));
-	fs1 = ft_strlen(s1);
-	if (!s1 || !set || !j)
-		return (NULL);
-	while (ft_strchr(set, s1[i]) && i < fs1)
+	fs1 = ft_strlen(s1) - 1;
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i ++;
-	while (ft_strchr(set, s1[fs1 - 1]) && fs1 > i)
+	while (fs1 >= i && ft_strchr(set, s1[fs1]))
 		fs1 --;
-	while (i < fs1)
+	j = (char *)malloc((fs1 - i + 2) * sizeof(char));
+	if (!j)
+		return (NULL);
+	while (i <= fs1)
 		j[h++] = s1[i++];
-	j[h] = 0;
+	j[h] = '\0';
 	return (j);
 }
 /*int main ()

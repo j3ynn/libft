@@ -6,13 +6,13 @@
 /*   By: jbellucc <jbellucc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:06 by jbellucc          #+#    #+#             */
-/*   Updated: 2024/12/20 14:26:40 by jbellucc         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:08:50 by je               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_digits(int n)
+int	count_digits(long n)
 {
 	int	count;
 
@@ -33,34 +33,33 @@ int	count_digits(int n)
 char	*ft_itoa(int n)
 {
 	char	*c;
-	char	*start;
+	long	nbr;
 	int		count;
 
-	if (n == -2147483648)
-		return ("-2147483648");
-	if (n == 0)
-		return ("0");
+	nbr = n;
 	count = count_digits(n);
-	c = (char *)malloc(sizeof(char) + (count + 1));
-	start = c;
-	if (n < 0)
+	if (nbr == 0)
+		return (ft_strdup("0"));
+	c = (char *)malloc(sizeof(char) * (count + 1));
+	if (!c)
+		return (NULL);
+	c[count] = '\0';
+	count --;
+	while (nbr != 0)
 	{
-		n = n * -1;
-		*c = '-';
+		if (nbr < 0)
+		{
+			nbr *= -1;
+			c[0] = '-';
+		}
+		c[count--] = (nbr % 10) + '0';
+		nbr = nbr / 10;
 	}
-	c += count;
-	*c = '\0';
-	while (n > 0)
-	{
-		c --;
-		*c = (n % 10) + '0';
-		n = n / 10;
-	}
-	return (start);
+	return (c);
 }
 /*int main()
 {
 	printf("%s\n", ft_itoa(0));
 	printf("%s\n", ft_itoa(-13320));
-	printf("%s\n", ft_itoa(10239810));
+	printf("%s\n", ft_itoa(-2147483648LL));
 }*/
